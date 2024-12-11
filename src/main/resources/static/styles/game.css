@@ -1,0 +1,59 @@
+/* game.css */
+
+/* Background and general page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fce4ec;  /* Light pink background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Container of the game */
+#game-container {
+    position: relative;
+    text-align: center;
+}
+
+/* Canvas styling */
+#gameCanvas {
+    border: 2px solid #fc87ae;  /* Bright pink border */
+    background-color: #ffffff;  /* White background for the game */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Score container */
+#score-container {
+    background-color: #f8bbd0; /* Light pink background for the score container */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+#score-display {
+    font-size: 20px;
+    color: #fc87ae; /* Darker pink for the score text */
+    font-weight: bold;
+}
+
+/* Button styling */
+#restart-button {
+    background-color: #f48fb1;  /* Soft pink background for the button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#restart-button:hover {
+    background-color: #f06292;  /* Slightly darker pink on hover */
+}
