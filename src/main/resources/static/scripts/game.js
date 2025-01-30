@@ -9,6 +9,8 @@ let birdY = 300;
 let birdVelocity = 0;
 let gravity = 0.5;
 let score = 0;
+let gameStarted = false;
+let gameOver = false;
 
 let pipes = [];
 let pipeGap = 150;
@@ -24,6 +26,7 @@ function createPipes() {
 }
 // Update game state
 function updateGame() {
+    if (gameOver) return; // Interrompe o loop se o jogo acabou
     // Bird physics
     birdVelocity += gravity;
     birdY += birdVelocity;
@@ -47,6 +50,7 @@ function updateGame() {
             if (birdY < pipe.topHeight || birdY > canvas.height - pipe.bottomHeight) {
                 alert("Game Over");
                 resetGame();
+              
                 return;
             }
         }
@@ -80,19 +84,30 @@ function drawGame() {
     document.getElementById("score-display").innerText = `Score: ${score}`;
 }
 
+
 // Reset game state
 function resetGame() {
     birdY = 300;
     birdVelocity = 0;
     score = 0;
     pipes = [];
+    gameStarted = false;
+    gameOver = false;
+
+// Clean canva and restart the score
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("score-display").innerText = "Score: 0";
 }
 
 // Listen for keyboard events (Space or Enter)
 document.addEventListener("keydown", (event) => {
     if (event.key === " " || event.key === "Enter") {
         birdVelocity = -8; // Make the bird jump (move up)
+
+        if(!gameStarted){
+           gameStarted = true;
+           updateGame(); //inicia o jogo apenas na primeira interação
+
+        }
     }
 });
-
-updateGame();
