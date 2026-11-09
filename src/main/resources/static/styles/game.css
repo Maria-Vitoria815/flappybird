@@ -36,10 +36,12 @@ body {
     display: inline-block;
 }
 
-#score-display {
+#score-display,
+#best-score-display {
     font-size: 20px;
     color: #fc87ae; /* Darker pink for the score text */
     font-weight: bold;
+    margin: 6px 0;
 }
 
 /* Button styling */
